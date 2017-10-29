@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Hello World!</title>
+        <link href="../static/css/main.css"
+          th:href="@{/css/main.css}"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="../static/js/main.js" th:src="@{/js/main.js}"></script>
+            
+    </head>
+    <body>
+        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+        
+        <h4>The default session type set from environment parameter is <span id="systemSessionType" th:text="${@environment.getProperty('sessionType')}">Service name</span></h4>
+
+        <p>
+        	This application is to demonstrate various methods of storing your session data. You can change the 
+        	type of storage method <a th:href="@{/maintenance}">here</a>. You can view, add and remove data
+        	<a th:href="@{/users}">here</a>.  
+        </p>
+        
+        <!-- Links to Other Pages -->
+        <table id="linksTable">
+        <tr>
+        <td>
+        	<form th:action="@{/logout}" method="post">
+            	<input type="submit" value="Sign Out"/>
+        	</form>  
+        </td>
+        <td><button onclick="setSessionStorageAndRedirect('users')">View/Add Info</button></td>
+        <td><button onclick="setSessionStorageAndRedirect('maintenance')">Maintenance</button></td>
+        </tr>
+        </table>       
+		 
+	 </body>
+</html>

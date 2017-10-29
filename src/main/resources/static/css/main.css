@@ -1,0 +1,40 @@
+h1{
+	color:red;
+}
+
+#addUser{
+	color: blue;
+}
+
+#usersTable, tr, td, th{
+	border:1px solid;
+	color: black;
+	border-collapse: collapse;
+}
+
+th{
+	color:blue;
+}
+
+td{
+	padding-left:10px;
+	padding-right:10px;
+}
+
+#delButtonCell td{
+	border:none;
+}
+
+#linksTable td{
+	border:none;
+	padding-left: 0px;
+}
+
+#loginTable td{
+	border:none;
+	padding-left: 0px;
+}
+
+body{
+	margin:25px;
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Spring Security Example</title>
+        <link href="../static/css/main.css"
+          th:href="@{/css/main.css}"
+          rel="stylesheet"/>
+        <script type="text/javascript" src="../static/js/main.js" th:src="@{/js/main.js}"></script>
+    </head>
+    <body onload="setCurrentMaintenanceSessionType()">
+        <h1>Choose your session storage method</h1>
+		<h4>Your current session type is <span id="maintenanceSessionType"></span></h4>
+		<form method="post">
+		  <input type="radio" id="redisRadio" name="sessionType" value="redis"/>Redis (NoSQL)<br/>
+		  <input type="radio" id="mysqlRadio" name="sessionType" value="mysql"/>MySQL (RDBMS)<br/>
+		  <br/>
+		  <button type="button" onclick="setSessionType()">Set Session Type</button>
+		</form>
+		<br/>
+		<p><a th:href="@{/hello}">Click here to go back.</a> </p>          
+    </body>
+</html>

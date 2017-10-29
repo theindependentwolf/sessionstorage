@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Spring Security Example</title>
+        <link href="../static/css/main.css"
+          th:href="@{/css/main.css}"
+          rel="stylesheet"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <body onload="processUsersOnLoad();">
+        <h1>View/Add User Information</h1>
+        <h4>Session Type = <span id="userSessionType"></span></h4>
+			<div id="mysqlDiv">
+			<table id="usersTable">
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Delete</th>					
+				</tr>
+				<tr th:each="user:${users}">
+					<td th:text="${user.id}"></td>
+					<td contenteditable="true" th:text="${user.name}"></td>
+					<td contenteditable="true" th:text="${user.email}"></td>
+					<td id="delButtonCell">
+					<form  action="#" th:action="@{'/user/{id}'(id=${user.id})}" th:method="delete">
+						<input type="submit" value="delete" />
+					</form>
+					</td>
+				</tr>
+			</table>
+			<br/>   
+			<br/>
+
+			<p id="addUser">Add new user...</p>
+			<form action="#" th:action="@{/add}" th:object="${user}" method="post">
+				<input type="text" name="name" placeholder="Enter name ..."/>
+				<input type="text" name="email" placeholder="Enter email ..."/>
+				<input type="submit" value="submit"/>
+			</form>
+			<br/>
+			<p><a th:href="@{/hello}">Click here to go back.</a> </p> 
+			</div>
+			
+			<div id="redisDiv">
+			<table id="usersTable">
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Delete</th>					
+				</tr>
+				<tr th:each="user:${users}">
+					<td th:text="${user.id}"></td>
+					<td contenteditable="true" th:text="${user.name}"></td>
+					<td contenteditable="true" th:text="${user.email}"></td>
+					<td id="delButtonCell">
+					<form  action="#" th:action="@{'/user/{id}'(id=${user.id})}" th:method="delete">
+						<input type="submit" value="delete" />
+					</form>
+					</td>
+				</tr>
+			</table>
+			<br/>   
+			<br/>
+
+			<p id="addUser">Add new user...</p>
+			<form action="#" th:action="@{/add}" th:object="${user}" method="post">
+				<input type="text" name="name" placeholder="Enter name ..."/>
+				<input type="text" name="email" placeholder="Enter email ..."/>
+				<input type="submit" value="submit"/>
+			</form>
+			<br/>
+			<p><a th:href="@{/hello}">Click here to go back.</a> </p> 
+			</div>
+			
+	<script type="text/javascript" src="../static/js/main.js" th:src="@{/js/main.js}"></script> 
+    </body>    
+</html>
