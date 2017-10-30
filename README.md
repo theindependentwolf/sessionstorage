@@ -74,6 +74,8 @@ This creates a jar in the project folder with the same name as the artifact name
 
 $java -jar gs-spring-boot-0.1.0.jar
 
+3. To open the application, use a browser of your choice and go to http://localhost:8080
+
 
 
 ## Notes:
