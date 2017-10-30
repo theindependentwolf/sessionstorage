@@ -31,6 +31,50 @@ This application is used to demonstrate session storage. It currently has two op
 6. Run the Spring Boot application or export the project as war using Maven build. 
 
 
+## MySQL and Redis Config 
+
+1. MySQL
+
+Create a database for your project to use the name in the URL. (CREATE DATABASE <database name>). Create a mysql user with access to that database and add the following to the aplication.properties file.  
+
+#MySQL Config - DO NOT USE "ROOT". THIS IS ONLY FOR EXAMPLE.
+
+spring.jpa.hibernate.ddl-auto=create
+
+spring.datasource.url=jdbc:mysql://localhost:3306/scenedoc
+
+spring.datasource.username=user
+
+spring.datasource.password=pwd
+
+2. Redis
+
+These are the defaults for Redis
+
+#Redis Config
+
+spring.redis.host=localhost
+
+spring.redis.password=secret
+
+spring.redis.port=6379
+
+
+
+## Build/Deploy Instructions
+
+1. To do a maven build, download project, go to the same location as the pom.xml file and run the following command. 
+
+$mvn package
+
+This creates a jar in the project folder with the same name as the artifact name in the pom.xml file. 
+
+
+2. Go to the target folder containing the jar and run the application using the following command (replace with your jar file name if necessary)
+
+$java -jar gs-spring-boot-0.1.0.jar
+
+
 
 ## Notes:
 
