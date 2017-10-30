@@ -36,6 +36,8 @@ This application is used to demonstrate session storage. It currently has two op
 
 1. The session type does not persist over sessions. In order to do that, the session type must be stored in a database or the system properties must be changed dynamically. It will only take affect after the application restarts.
 
+2. The Redis storage doesn't really work. It just redirects to the MySQL storage. 
+
 
 
 
